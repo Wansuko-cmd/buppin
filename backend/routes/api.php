@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BoardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->group(function (){
+Route::middleware('api')->group(function (){
 
-//    Route::post();
+
+    Route::prefix('board')
+        ->name('board.')
+        ->group(function (){
+
+
+            Route::get('get_all', [BoardController::class, 'get_all'])->name('get_all');
+    });
 });
