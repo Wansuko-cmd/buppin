@@ -25,7 +25,7 @@ class BoardFactory extends Factory
             'name' => $this->faker->word,
             'label_number' => $this->faker->word,
             'is_personal' => false,
-            'photo_path' => $this->faker->imageUrl,
+            'image_path' => $this->faker->imageUrl,
             'detail' => $this->faker->text,
         ];
     }
