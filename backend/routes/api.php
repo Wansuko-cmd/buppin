@@ -23,6 +23,8 @@ Route::middleware('api')->group(function (){
         ->group(function (){
 
 
-            Route::get('get_all', [BoardController::class, 'get_all'])->name('get_all');
+            Route::get('/', [BoardController::class, 'get_all'])->name('get_all');
+            Route::get('/{board_id}', [BoardController::class, 'get_by_board_id'])->name('get_by_board_id');
+
     });
 });

@@ -22,4 +22,8 @@ class BoardController extends Controller
     public function get_all(){
         return $this->mBoard->query()->get();
     }
+
+    public function get_by_board_id($board_id){
+        return $this->mBoard->query()->findOrFail($board_id);
+    }
 }
