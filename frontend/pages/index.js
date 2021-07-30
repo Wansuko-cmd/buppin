@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import BoardCard from "../components/board/BoardCard";
-import {Grid} from "@material-ui/core";
+import {Grid, Link} from "@material-ui/core";
 
 export default function Home() {
 
@@ -24,11 +24,13 @@ export default function Home() {
                     {data.map(x => {
                         return(
                             <Grid key={x.id} item xs={4}>
-                                <BoardCard
-                                    name={x.name}
-                                    imagePath={x.image_path}
-                                    isPersonal={x.is_personal}
-                                />
+                                <Link href={`/boards/${x.id}`}>
+                                    <BoardCard
+                                        name={x.name}
+                                        imagePath={x.image_path}
+                                        isPersonal={x.is_personal}
+                                    />
+                                </Link>
                             </Grid>
                         )
                     })}

@@ -6,7 +6,11 @@ const BoardShow = () => {
 
     const router = useRouter()
 
-    const [data, setData] = useState({name: ""});
+    const [data, setData] = useState({
+        name: "",
+        image_path: "",
+        is_personal: false
+    });
 
     const { board_id } = router.query
 
@@ -14,7 +18,7 @@ const BoardShow = () => {
         async function fetchData(){
 
             if(board_id == undefined) return
-            const response = await axios.get("http://127.0.0.1:8000/api/board/" + board_id)
+            const response = await axios.get(`http://127.0.0.1:8000/api/board/${board_id}`)
             setData(response.data)
             return response
         }
@@ -24,7 +28,9 @@ const BoardShow = () => {
 
     return(
         <>
-            <h1>The result : {data.name}</h1>
+            <img src={data.image_path} alt="画像の取得に失敗しました"/>
+            <h1>{data.name}</h1>
+            {data.is_personal}
         </>
     )
 }
